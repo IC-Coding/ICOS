@@ -2,9 +2,9 @@
 #define SCREEN_H
 
 
-#include "types.h"
-#include "system.h"
-#include "string.h"
+#include "../includes/types.h"
+#include "../includes/system.h"
+#include "../includes/string.h"
 
 int cursorX = 0, cursorY = 0;
 const uint8 sw = 80,sh = 25,sd = 2;                                                    //We define the screen width, height, and depth.
@@ -109,7 +109,7 @@ void printch(char c)
 void print (string ch)
 {
         uint16 i = 0;
-        for(i;i<strlength(ch);i++)
+        for(i;i<strlen(ch);i++)
         {
                 printch(ch[i]);
         }

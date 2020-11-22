@@ -1,53 +1,34 @@
 #include "../includes/screen.h"
+#include "../includes/kb.h"
+#include "../includes/string.h"
+#include "../includes/stddef.h"
+#include "../includes/stdio.h"
+#include "../includes/stdlib.h"
 
-/*
-
-DECLARATIONS OF INDEPENDENCE
-
-*/
-
-void updatePrint();
-
-/*
-
-END OF DECLARATIONS OF INDEPENDENCE
-
-*/
-
-
-
-string screenLines[19];
-
-
-void updatePrint()
+main()
 {
-    for (int i = 0; i < sizeof(screenLines)/sizeof(string); i++)
-    {
-        if (screenLines[i] != "S")
-        {
-            print(screenLines[i]);
-        }
-        else 
-        {
-            screenLines[i] = "";
-        }
-    }
+       clearScreen();
+       print("Welcome to NIDOS operating system\nPlease enter a command\n");
+       while (1)
+       {
+                print("\nNIDOS> ");
+                
+                string ch = readStr();
+                if (strstr(ch, "out") != NULL) 
+                {
+    
+                }
+                else if(strcmp(ch,"clear"))
+                {
+                        clearScreen();
+                }
+                
+                else
+                {
+                        print("\nBad command!\n");
+                }
+                
+                print("\n");        
+       }
+        
 }
-
-
-void clearScr();
-
-int main(void)
-{
-    screenLines[1] = "ICOS Booted and ready to go >>>";
-    screenLines[2] = "Fuck off";
-
-    updatePrint();
-    return 0;
-}
-
-void clearScr(void) 
-{
-    clearScreen();
-}
-
